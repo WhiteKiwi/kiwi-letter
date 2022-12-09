@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { SampleModule } from './sample';
+import { LetterModule } from './letter';
 
 @Module({
-	imports: [SampleModule],
+	imports: [LetterModule],
 })
 export class ApiModule {}

@@ -9,7 +9,6 @@ specifiers:
   '@nestjs/core': ^8.0.0
   '@nestjs/platform-express': ^8.0.0
   '@nestjs/schematics': ^8.0.0
-  '@nestjs/swagger': ^5.2.0
   '@nestjs/testing': ^8.0.0
   '@types/express': ^4.17.13
   '@types/jest': 27.4.1
@@ -31,7 +30,6 @@ dependencies:
   '@nestjs/config': 1.2.1_bkbhg4knmtesqnnagm7a2p5cuy
   '@nestjs/core': 8.4.7_rvglusfgyoseqzubhh6546rvkq
   '@nestjs/platform-express': 8.4.7_7tsmhnugyerf5okgqzer2mfqme
-  '@nestjs/swagger': 5.2.1_zysgbzrbqurgi5bpxpfkrj3lie
   reflect-metadata: 0.1.13
   rimraf: 3.0.2
   rxjs: 7.5.7
@@ -956,23 +954,6 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/mapped-types/1.0.1_tqvmdvrjo4ghzq2yoilcfekhea:
-    resolution: {integrity: sha512-NFvofzSinp00j5rzUd4tf+xi9od6383iY0JP7o0Bnu1fuItAUkWBgc4EKuIQ3D+c2QI3i9pG1kDWAeY27EMGtg==}
-    peerDependencies:
-      '@nestjs/common': ^7.0.8 || ^8.0.0
-      class-transformer: ^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0
-      class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0
-      reflect-metadata: ^0.1.12
-    peerDependenciesMeta:
-      class-transformer:
-        optional: true
-      class-validator:
-        optional: true
-    dependencies:
-      '@nestjs/common': 8.4.7_yzt46al3aifnexifjjdb4dxxja
-      reflect-metadata: 0.1.13
-    dev: false
-
   /@nestjs/platform-express/8.4.7_7tsmhnugyerf5okgqzer2mfqme:
     resolution: {integrity: sha512-lPE5Ltg2NbQGRQIwXWY+4cNrXhJdycbxFDQ8mNxSIuv+LbrJBIdEB/NONk+LLn9N/8d2+I2LsIETGQrPvsejBg==}
     peerDependencies:
@@ -1018,31 +999,6 @@ packages:
     transitivePeerDependencies:
       - chokidar
     dev: true
-
-  /@nestjs/swagger/5.2.1_zysgbzrbqurgi5bpxpfkrj3lie:
-    resolution: {integrity: sha512-7dNa08WCnTsW/oAk3Ujde+z64JMfNm19DhpXasFR8oJp/9pggYAbYU927HpA+GJsSFJX6adjIRZsCKUqaGWznw==}
-    peerDependencies:
-      '@nestjs/common': ^8.0.0
-      '@nestjs/core': ^8.0.0
-      fastify-swagger: '*'
-      reflect-metadata: ^0.1.12
-      swagger-ui-express: '*'
-    peerDependenciesMeta:
-      fastify-swagger:
-        optional: true
-      swagger-ui-express:
-        optional: true
-    dependencies:
-      '@nestjs/common': 8.4.7_yzt46al3aifnexifjjdb4dxxja
-      '@nestjs/core': 8.4.7_rvglusfgyoseqzubhh6546rvkq
-      '@nestjs/mapped-types': 1.0.1_tqvmdvrjo4ghzq2yoilcfekhea
-      lodash: 4.17.21
-      path-to-regexp: 3.2.0
-      reflect-metadata: 0.1.13
-    transitivePeerDependencies:
-      - class-transformer
-      - class-validator
-    dev: false
 
   /@nestjs/testing/8.4.7_yg656aic4dli3q2c2sx4xyqza4:
     resolution: {integrity: sha512-aedpeJFicTBeiTCvJWUG45WMMS53f5eu8t2fXsfjsU1t+WdDJqYcZyrlCzA4dL1B7MfbqaTURdvuVVHTmJO8ag==}
