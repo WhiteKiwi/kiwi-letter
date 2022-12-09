@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { RedisModule } from '../../core';
 
+import { LetterBatchService } from './letter.batch.service';
 import { LetterController } from './letter.controller';
 import { Letter, LetterSchema } from './letter.entity';
 import { LetterService } from './letter.service';
@@ -14,8 +16,9 @@ import { TemplateBuilder } from './template.builder';
 				schema: LetterSchema,
 			},
 		]),
+		RedisModule,
 	],
 	controllers: [LetterController],
-	providers: [LetterService, TemplateBuilder],
+	providers: [LetterService, LetterBatchService, TemplateBuilder],
 })
 export class LetterModule {}

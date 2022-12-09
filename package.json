@@ -27,10 +27,13 @@
 		"@nestjs/core": "^8.0.0",
 		"@nestjs/mongoose": "^9.2.1",
 		"@nestjs/platform-express": "^8.0.0",
+		"@nestjs/schedule": "^2.1.0",
+		"ioredis": "^5.2.4",
 		"mongoose": "^6.8.0",
 		"reflect-metadata": "^0.1.13",
 		"rimraf": "^3.0.2",
-		"rxjs": "^7.2.0"
+		"rxjs": "^7.2.0",
+		"the-camp": "^2.0.2"
 	},
 	"devDependencies": {
 		"@kiwi-lib/eslint-config": "^2",

@@ -2,6 +2,7 @@ import { HealthCheckModule } from '@kiwi-lib/nestjs';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ScheduleModule } from '@nestjs/schedule';
 import { Env } from './config/env';
 import { ApiModule } from './modules';
 
@@ -14,7 +15,7 @@ import { ApiModule } from './modules';
 		}),
 		HealthCheckModule,
 		ApiModule,
-
+		ScheduleModule.forRoot(),
 		MongooseModule.forRootAsync({
 			imports: [ConfigModule],
 			inject: [ConfigService],
