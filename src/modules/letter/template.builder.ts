@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { LetterInfo as Letter } from '../../core/types';
+import { Letter } from './letter.entity';
 
 @Injectable()
 export class TemplateBuilder {
@@ -61,6 +61,9 @@ export class TemplateBuilder {
 							<button type="submit" class="btn btn-outline-dark btn-sm">
 								작성
 							</button>
+							<button type="button" onclick="copyUrl()" class="btn btn-outline-dark btn-sm">
+								공유하기
+							</button>
 						</div>
 					</form>
 
@@ -73,6 +76,19 @@ export class TemplateBuilder {
 					const message = document.location.search.split('message=')[1];
 					if (message) {
 						alert(decodeURIComponent(message), 'success');
+					};
+
+					function copyUrl() {
+						const url = document.location.href.split('?')[0];
+						const input = document.createElement('input');
+						input.setAttribute('value', url);
+						document.body.appendChild(input);
+						input.select();
+						const result = document.execCommand('copy');
+						document.body.removeChild(input);
+						if (result) {
+							alert('링크가 복사되었습니다.');
+						}
 					}
 				</script>
 			

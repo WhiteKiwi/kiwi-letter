@@ -11,21 +11,9 @@ export class LetterController {
 	) {}
 
 	@Get()
-	getPage(): string {
-		return this.templateBuilder.build([
-			{
-				name: '장지훈',
-				content: '안녕하세요',
-				createdAt: '2022-01-01',
-				sended: false,
-			},
-			{
-				name: '장지훈',
-				content: '안녕하세요',
-				createdAt: '2022-01-01',
-				sended: true,
-			},
-		]);
+	async getPage(): Promise<string> {
+		const letters = await this.letterService.getLetters();
+		return this.templateBuilder.build(letters);
 	}
 
 	@Post()

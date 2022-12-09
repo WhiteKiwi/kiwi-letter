@@ -1,7 +1,8 @@
 import { HealthCheckModule } from '@kiwi-lib/nestjs';
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Env } from './config/env';
 import { ApiModule } from './modules';
 
 @Module({
@@ -13,6 +14,17 @@ import { ApiModule } from './modules';
 		}),
 		HealthCheckModule,
 		ApiModule,
+
+		MongooseModule.forRootAsync({
+			imports: [ConfigModule],
+			inject: [ConfigService],
+			useFactory: (configService: ConfigService<Env>) => ({
+				uri: configService.get<string>(
+					'MONGO_DB_CONNECTION_URI',
+					'mongodb://localhost:27017/scraping_batch?ssl=false',
+				),
+			}),
+		}),
 	],
 })
 export class AppModule {}
