@@ -11,7 +11,7 @@ export class LetterService {
 	) {}
 
 	async getLetters(): Promise<Letter[]> {
-		return await this.letterModel.find({});
+		return await this.letterModel.find({}).sort({ _id: -1 });
 	}
 
 	async createLetter({
