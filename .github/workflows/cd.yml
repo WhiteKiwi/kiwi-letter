@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://k-letter-api.whitekiwi.link
+      url: https://letter.whitekiwi.link
 
     steps:
     - name: Checkout
