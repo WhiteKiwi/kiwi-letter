@@ -5,7 +5,6 @@ RUN npm install --location=global pnpm@^7
 
 # COPY repository
 COPY . .
-WORKDIR server
 
 # build
 RUN pnpm install --frozen-lockfile
