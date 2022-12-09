@@ -19,6 +19,8 @@ export class LetterBatchService {
 
 	@Cron('0 0 * * * *')
 	async registerSoldier(): Promise<void> {
+		console.log('registerSoldier');
+
 		const [id, password] = this.configService
 			.get('THE_CAMP_CREDENTIAL', ':')
 			.split(':');
@@ -43,6 +45,8 @@ export class LetterBatchService {
 
 	@Cron('10 0 * * * *')
 	async batchLetters(): Promise<void> {
+		console.log('batchLetters');
+
 		const soldierId = await this.redisService.get('soldierId');
 		if (!soldierId) {
 			console.log('soldierId is not exist');

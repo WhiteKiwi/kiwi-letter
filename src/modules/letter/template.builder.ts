@@ -79,7 +79,7 @@ export class TemplateBuilder {
 					};
 
 					function copyUrl() {
-						const url = document.location.href.split('?')[0];
+						const url = document.location.href.split('?')[0] + '?code=잘생긴지훈';
 						const input = document.createElement('input');
 						input.setAttribute('value', url);
 						document.body.appendChild(input);
