@@ -11,7 +11,11 @@ export class LetterService {
 	) {}
 
 	async getLetters(): Promise<Letter[]> {
-		return await this.letterModel.find({}).sort({ _id: -1 });
+		return await this.letterModel.find({
+			$sort: { _id: -1 },
+			// TODO: Paging or infinite scroll
+			$size: 50,
+		});
 	}
 
 	async createLetter({
