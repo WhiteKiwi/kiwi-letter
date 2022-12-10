@@ -118,7 +118,11 @@ export class TemplateBuilder {
 		return `
 		<div class="position-relative">
 			<div class="shadow-lg p-3 mt-2 bg-body rounded float-right">
-			<div>${hidden ? lockIcon + ' 비밀글입니다.' : content}</div>
+			<div>${
+				hidden
+					? lockIcon + ' 비밀글입니다.'
+					: content.trim().replace(/\n/g, '<br>')
+			}</div>
 			<div class="text-align-right name">${name}</div>
 			<div class="text-align-right created-at">${createdAt}</div>
 
