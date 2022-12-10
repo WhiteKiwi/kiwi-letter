@@ -123,7 +123,7 @@ export class TemplateBuilder {
 					? lockIcon + ' 비밀글입니다.'
 					: content.trim().replace(/\n/g, '<br>')
 			}</div>
-			<div class="text-align-right name">${name}</div>
+			<div class="text-align-right name">${hidden ? '비밀글' : name}</div>
 			<div class="text-align-right created-at">${createdAt}</div>
 
 			${
