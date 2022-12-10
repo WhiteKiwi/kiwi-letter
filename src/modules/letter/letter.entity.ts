@@ -13,6 +13,9 @@ export class Letter {
 
 	@Prop({ type: Boolean })
 	sended!: boolean;
+
+	@Prop({ type: Boolean })
+	hidden!: boolean;
 }
 
 export const LetterSchema = SchemaFactory.createForClass(Letter);

@@ -17,15 +17,18 @@ export class LetterService {
 	async createLetter({
 		name,
 		content,
+		hidden,
 	}: {
 		name: string;
 		content: string;
+		hidden: boolean;
 	}): Promise<void> {
 		await this.letterModel.create({
 			name,
 			content: content.replace(/</g, '&lt;'),
 			createdAt: dateToYyyyMMdd(new Date()),
 			sended: false,
+			hidden,
 		});
 	}
 }

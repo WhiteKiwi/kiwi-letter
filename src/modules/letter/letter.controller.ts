@@ -22,7 +22,12 @@ export class LetterController {
 	@Post()
 	async createLetter(
 		@Query() query: any,
-		@Body() { name = '', content = '' }: { name?: string; content?: string },
+		@Body()
+		{
+			name = '',
+			content = '',
+			hidden = 'false',
+		}: { name?: string; content?: string; hidden?: string },
 		@Res() res: Response,
 	): Promise<Promise<void>> {
 		if (query.code !== '잘생긴지훈') {
@@ -40,6 +45,7 @@ export class LetterController {
 		await this.letterService.createLetter({
 			name,
 			content,
+			hidden: hidden === 'true',
 		});
 
 		res.redirect('/?code=잘생긴지훈&message=' + '작성되었습니다.');
