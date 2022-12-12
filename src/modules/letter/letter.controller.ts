@@ -32,6 +32,7 @@ export class LetterController {
 	): Promise<Promise<void>> {
 		if (query.code !== '잘생긴지훈') {
 			res.redirect('/');
+			return;
 		}
 
 		if (!name.trim()) {
