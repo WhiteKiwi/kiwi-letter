@@ -11,12 +11,13 @@ export class LetterService {
 	) {}
 
 	async getLetters(): Promise<Letter[]> {
-		return await this.letterModel.find({
+		this.letterModel.find({});
+		return await this.letterModel
+			.find({})
 			// object id로 정렬하면 최신순으로 정렬됨
-			$sort: { _id: -1 },
+			.sort({ _id: -1 })
 			// TODO: Paging or infinite scroll
-			$size: 50,
-		});
+			.limit(50);
 	}
 
 	async createLetter({
