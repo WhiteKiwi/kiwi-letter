@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post, Query, Res } from '@nestjs/common';
 import { Response } from 'express';
+import { RedisService } from '../../core';
 import { LetterService } from './letter.service';
 import { TemplateBuilder } from './template.builder';
 
@@ -7,6 +8,7 @@ import { TemplateBuilder } from './template.builder';
 export class LetterController {
 	constructor(
 		private readonly letterService: LetterService,
+		private readonly redisService: RedisService,
 		private readonly templateBuilder: TemplateBuilder,
 	) {}
 
@@ -16,7 +18,9 @@ export class LetterController {
 			return 'Invalid code parameter';
 		}
 		const letters = await this.letterService.getLetters();
-		return this.templateBuilder.build(letters);
+		const password = await this.redisService.get('password');
+		const hideLetters = query.passcode !== password;
+		return this.templateBuilder.build(letters, hideLetters);
 	}
 
 	@Post()

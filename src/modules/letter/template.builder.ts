@@ -3,7 +3,7 @@ import { Letter } from './letter.entity';
 
 @Injectable()
 export class TemplateBuilder {
-	build(letters: Letter[]) {
+	build(letters: Letter[], hideLetters: boolean): string {
 		return `<!DOCTYPE html>
 		<html>
 			<head>
@@ -74,7 +74,7 @@ export class TemplateBuilder {
 						</div>
 					</form>
 
-					${letters.map(this.createLetter).join('\n')}
+					${letters.map((letter) => this.createLetter(letter, hideLetters)).join('\n')}
 					</div>
 				</div>
 		
@@ -114,16 +114,21 @@ export class TemplateBuilder {
 		`;
 	}
 
-	private createLetter({ name, content, createdAt, sended, hidden }: Letter) {
+	private createLetter(
+		{ name, content, createdAt, sended, hidden }: Letter,
+		hideLetters: boolean,
+	) {
 		return `
 		<div class="position-relative">
 			<div class="shadow-lg p-3 mt-2 bg-body rounded float-right">
 			<div>${
-				hidden
+				hidden && hideLetters
 					? lockIcon + ' 비밀글입니다.'
 					: content.trim().replace(/\n/g, '<br>')
 			}</div>
-			<div class="text-align-right name">${hidden ? '비밀글' : name}</div>
+			<div class="text-align-right name">${
+				hidden && hideLetters ? '비밀글' : name
+			}</div>
 			<div class="text-align-right created-at">${createdAt}</div>
 
 			${
