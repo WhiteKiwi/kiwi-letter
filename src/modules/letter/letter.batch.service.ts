@@ -30,12 +30,12 @@ export class LetterBatchService {
 			const { soldierId } = await theCampClient.registerSoldier({
 				성분: '예비군인/훈련병',
 				군종: '육군',
-				이름: '장지훈',
-				입영부대: '육군훈련소-논산',
+				이름: '차성민',
+				입영부대: '7사단-화천',
 				관계: '팬',
-				생년월일: '2001-03-13',
-				입영일: '2022-12-15',
-				전화번호: '01058007614',
+				생년월일: '2001-07-18',
+				입영일: '2023-01-17',
+				전화번호: '01053507511',
 			});
 			await this.redisService.set('soldierId', soldierId);
 		} catch (e) {
@@ -74,7 +74,7 @@ export class LetterBatchService {
 		letter: Letter & { _id: Types.ObjectId },
 	): Promise<void> {
 		await theCampClient.sendLetter(soldierId, {
-			제목: '장지훈-인편게시판',
+			제목: '차성민-인편게시판',
 			작성자: letter.name,
 			내용: letter.content,
 		});

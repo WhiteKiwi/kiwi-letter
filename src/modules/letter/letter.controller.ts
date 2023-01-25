@@ -14,7 +14,7 @@ export class LetterController {
 
 	@Get()
 	async getPage(@Query() query: any): Promise<string> {
-		if (query.code !== '잘생긴지훈') {
+		if (query.code !== '뀨잉뀨잉성민') {
 			return 'Invalid code parameter';
 		}
 		const letters = await this.letterService.getLetters();
@@ -34,17 +34,17 @@ export class LetterController {
 		}: { name?: string; content?: string; hidden?: string },
 		@Res() res: Response,
 	): Promise<Promise<void>> {
-		if (query.code !== '잘생긴지훈') {
+		if (query.code !== '뀨잉뀨잉성민') {
 			res.redirect('/');
 			return;
 		}
 
 		if (!name.trim()) {
-			res.redirect('/?code=잘생긴지훈&message=' + '이름을 작성해주세요');
+			res.redirect('/?code=뀨잉뀨잉성민&message=' + '이름을 작성해주세요');
 			return;
 		}
 		if (!content.trim()) {
-			res.redirect('/?code=잘생긴지훈&message=' + '내용을 작성해주세요');
+			res.redirect('/?code=뀨잉뀨잉성민&message=' + '내용을 작성해주세요');
 			return;
 		}
 		await this.letterService.createLetter({
@@ -53,6 +53,6 @@ export class LetterController {
 			hidden: hidden === 'true',
 		});
 
-		res.redirect('/?code=잘생긴지훈&message=' + '작성되었습니다.');
+		res.redirect('/?code=뀨잉뀨잉성민&message=' + '작성되었습니다.');
 	}
 }

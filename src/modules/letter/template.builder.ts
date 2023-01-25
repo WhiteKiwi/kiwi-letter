@@ -8,7 +8,7 @@ export class TemplateBuilder {
 		<html>
 			<head>
 				<meta charset="utf-8" />
-				<title>장지훈 인편게시판</title>
+				<title>차성민 인편게시판</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link
 					href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -43,7 +43,7 @@ export class TemplateBuilder {
 			<body>
 				<nav class="navbar navbar-dark bg-dark mb-3">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="#">장지훈 인편게시판</a>
+						<a class="navbar-brand" href="#">차성민 인편게시판</a>
 					</div>
 				</nav>
 		
@@ -86,7 +86,7 @@ export class TemplateBuilder {
 					};
 
 					function copyUrl() {
-						const url = document.location.href.split('?')[0] + '?code=잘생긴지훈';
+						const url = document.location.href.split('?')[0] + '?code=뀨잉뀨잉성민';
 						const input = document.createElement('input');
 						input.setAttribute('value', url);
 						document.body.appendChild(input);

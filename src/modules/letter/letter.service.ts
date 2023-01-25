@@ -17,7 +17,7 @@ export class LetterService {
 			// object id로 정렬하면 최신순으로 정렬됨
 			.sort({ _id: -1 })
 			// TODO: Paging or infinite scroll
-			.limit(50);
+			.limit(200);
 	}
 
 	async createLetter({
