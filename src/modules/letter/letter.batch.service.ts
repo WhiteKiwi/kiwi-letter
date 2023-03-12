@@ -76,7 +76,7 @@ export class LetterBatchService {
 		await theCampClient.sendLetter(soldierId, {
 			제목: '이현준-인편게시판',
 			작성자: letter.name,
-			내용: letter.content,
+			내용: letter.content + '\n<br>작성일: ' + letter.createdAt,
 		});
 		await this.letterModel.updateOne(
 			{
